@@ -5,11 +5,14 @@ class TodoItemList extends Component {
   render() {
     const { todos, onToggle, onRemove } = this.props;
 
+    const todoList = todos.map(({id, text, checked}) => {
+      console.log(id);
+      return <TodoItem id={id} text={text} checked={checked} onToggle={onToggle} onRemove={onRemove} key={id}></TodoItem>
+    })
+
     return (
       <div>
-        <TodoItem text="hello"/>
-        <TodoItem text="text"/>
-        <TodoItem text="This is nara!"/>
+        {todoList}
       </div>
     );
   }
